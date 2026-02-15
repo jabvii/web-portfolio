@@ -2,7 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 #particles {
-    position: fixed;
+    position: fixed; 
     inset: 0;
     z-index: -1;
     pointer-events: none;
@@ -10,7 +10,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    height: 500vh;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
     background-color: #141416;
@@ -30,7 +29,7 @@ h1, h2, p, a {
     font-family: 'Montserrat', sans-serif;
 }
 .text-color-aqua {
-    color: aqua;
+    color: #A7C7E7;
 }
 
 /* -------------------- NAV BAR -------------------- */
@@ -79,14 +78,14 @@ h1, h2, p, a {
     transform: scale(1.06);
 }
 .nav-links a.active {
-    color: aqua;
+    color: #A7C7E7;
     transform: scale(1.06);
 }
 
-
 /* SECTIONS */
 .section-box {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 /* ------------------ HOME SECTION ------------------ */
@@ -103,7 +102,7 @@ h1, h2, p, a {
     margin-left: 10%;
 }
 #home h1 {
-    margin: 45% 0 0 15%;
+    margin: 40% 0 0 15%;
     font-weight: bold;
     font-size: 190%;
 }
@@ -138,29 +137,33 @@ h1, h2, p, a {
     margin: 6% 0 0 0;
     gap: 6%;
 }
-#home .contacts-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20%;
-    transition: border-radius 0.3s ease;
-}
+
 #home .gmail-container,
 #home .github-container,
 #home .fb-container {
     width: 80px;
     height: 80px;
     border-radius: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
 }
-#home .gmail-container {
-    margin-left: 15.6%;
+#home .contacts-section i {
+    font-size: 40px;
 }
+#home .gmail-container i { color: #EA4335; }
+#home .github-container i { color: #333; }
+#home .fb-container i { color: #1877F2; }
+#home .gmail-container { margin-left: 15.6%; }
 #home .gmail-container:hover,
 #home .github-container:hover,
 #home .fb-container:hover {
-    transform: translateY(-2px);
-    opacity: 0.8;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    opacity: 0.9;
 }
 
 /* -------------------- ABOUT SECTION -------------------- */
@@ -189,8 +192,7 @@ h1, h2, p, a {
     border-radius: 15px;
     backdrop-filter: blur(6px);
     background: rgba(20, 20, 20, 0.45);
-    border: 1px solid rgba(0, 255, 255, 0.15);
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.08);
+    border: 1px solid #a7c7e72d;
     position: relative;
     overflow: hidden;
     transition: flex 0.45s ease, background 0.3s ease, box-shadow 0.3s ease;
@@ -207,7 +209,7 @@ h1, h2, p, a {
 }
 .abcontainer .color-box:hover {
     flex: 4;
-    background: rgba(0, 40, 40, 0.7);   
+    background: #a7c7e705; 
 }
 .abcontainer:hover .color-box:not(:hover) .about-content {
     opacity: 0;
@@ -216,7 +218,7 @@ h1, h2, p, a {
 .about-title {
     font-family: Verdana, sans-serif;
     font-size: 1.4rem;
-    color: aqua;
+    color: #A7C7E7;
     margin-bottom: 15px;
     text-align: center;
     font-weight: 600;
@@ -232,15 +234,15 @@ h1, h2, p, a {
 }
 .disc {
     padding: 6px 12px;
-    background: rgba(0, 255, 255, 0.07);
-    border: 1px solid rgba(0, 255, 255, 0.25);
+    background: #a7c7e72d;
+    border: 1px solid #a7c7e72d;
     border-radius: 8px;
     font-size: 0.85rem;
     color: white;
     transition: 0.2s;
 }
 .disc:hover {
-    background: rgba(0, 255, 255, 0.25);
+    background: #a7c7e757;
 }
 .color-box {
     position: relative;
@@ -252,7 +254,7 @@ h1, h2, p, a {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
-    color: aqua;
+    color: #A7C7E7;
     transition: opacity 0.4s ease;
     pointer-events: none;
 }
@@ -273,25 +275,24 @@ h1, h2, p, a {
     margin-bottom: 48px;
 }
 .projects-container {
-    position: relative;
-    overflow: hidden;
+    width: 100%;
 }
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    transition: transform 0.4s ease;
+    gap: 28px;
 }
-
 .project-card {
     background-color: #1a1a1d;
     border: 1px solid #2a2a2d;
     border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .project-card:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    border-color: #3a3a3f;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.35);
 }
 .project-image {
     width: 100%;
@@ -308,7 +309,7 @@ h1, h2, p, a {
     object-fit: cover;
 }
 .project-image-placeholder {
-    color: #00c8c8;
+    color: #A7C7E7;
     opacity: 0.5;
 }
 .project-image-placeholder svg {
@@ -340,8 +341,8 @@ h1, h2, p, a {
     gap: 8px;
 }
 .tech-tag {
-    background-color: rgba(0, 200, 200, 0.1);
-    color: #00c8c8;
+    background-color: #a7c7e70e;
+    color: #A7C7E7;
     padding: 4px 10px;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -366,7 +367,7 @@ h1, h2, p, a {
     transition: color 0.2s ease;
 }
 .project-link:hover {
-    color: #00c8c8;
+    color: #A7C7E7;
 }
 .project-link svg {
     width: 16px;
@@ -422,7 +423,7 @@ h1, h2, p, a {
     transition: color 0.25s ease;
 }
 .skills-toggle button:hover {
-    color: aqua;
+    color: #A7C7E7;
 }
 /* The underline */
 .skills-toggle button.active::after {
@@ -432,7 +433,7 @@ h1, h2, p, a {
     bottom: -6px;
     width: 100%;
     height: 2px;
-    background-color: aqua;
+    background-color: #A7C7E7;
     border-radius: 2px;
     transform: scaleX(1);
     transition: transform 0.25s ease;
@@ -444,13 +445,13 @@ h1, h2, p, a {
     bottom: -6px;
     width: 100%;
     height: 2px;
-    background-color: aqua;
+    background-color: #A7C7E7;
     border-radius: 2px;
     transform: scaleX(0);
     transition: transform 0.25s ease;
 }
 .skills-toggle button.active {
-    color: aqua;
+    color: #A7C7E7;
 }
 .skills-toggle button.active:hover {
     color: white;
@@ -478,7 +479,7 @@ h1, h2, p, a {
     background-color: #1a1a1c;
     border-radius: 10px;
     border: 1px solid #2a2a2d;
-    color: aqua;
+    color: #A7C7E7;
     transition: 0.3s ease;
 }
 .skill-item i {
@@ -582,7 +583,7 @@ h1, h2, p, a {
 .contact-card svg {
     width: 32px;
     height: 32px;
-    color: #00c8c8;
+    color: #A7C7E7;
 }
 .contact-card span {
     font-weight: 500;
@@ -593,7 +594,7 @@ h1, h2, p, a {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background-color: aqua;
+    background-color: #A7C7E7;
     color: #000;
     font-weight: 600;
     font-size: 1rem;
@@ -603,7 +604,7 @@ h1, h2, p, a {
     transition: background-color 0.2s ease;
 }
 .send-button:hover {
-    background-color: #00a8a8;
+    background-color: #a7c7e7ab;
 }
 .send-button svg {
     width: 16px;
